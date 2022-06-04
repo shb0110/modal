@@ -1,0 +1,141 @@
+@import 'reset';
+
+@keyframes pulse {
+	0% {
+		transform: translate(-50%) scale(1);
+	}
+
+	100% {
+		transform: translate(-50%) scale(1.05);
+	}
+}
+
+.modal {
+	width: 500px;
+	border-radius: 20px;
+	box-shadow: 0px 0px 20px grey;
+	padding: 25px;
+	position: relative;
+	position: absolute;
+	left: 50%;
+	top: -300px;
+	z-index: 9999;
+	background-color: #fff;
+	transform: translate(-50%);
+	transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	&.active {
+		transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+		top: 200px;
+	}
+
+	&.pulse {
+		animation: pulse 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) 1 alternate backwards;
+	}
+}
+
+.bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	z-index: 999;
+	visibility: hidden;
+	transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+	&.active {
+		transition: all .4s cubic-bezier(0.165, 0.84, 0.44, 1);
+		visibility: visible;
+	}
+}
+
+.close {
+	position: absolute;
+	right: 20px;
+	top: 30px;
+	cursor: pointer;
+	width: 30px;
+	height: 30px;
+
+	&::after,
+	&::before {
+		content: '';
+		left: 0;
+		right: 0;
+		position: absolute;
+		border-radius: 10px;
+		background-color: red;
+		height: 3px;
+
+	}
+
+	&::after {
+		transform: rotate(45deg);
+	}
+
+	&::before {
+		transform: rotate(-45deg);
+	}
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+
+	label {
+		font-size: 18px;
+		font-weight: bold;
+	}
+
+	input {
+		border: 1px solid green;
+		border-radius: 20px;
+		padding: 10px 15px;
+	}
+
+	div {
+		display: flex;
+		align-items: center;
+		column-gap: 15px;
+
+		input {
+			cursor: pointer;
+		}
+	}
+}
+
+.yopish {
+	border: 1px solid green;
+	border-radius: 20px;
+	padding: 10px 15px;
+	cursor: pointer;
+}
+
+.wrap {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+
+.block {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.btn {
+	background-color: crimson;
+	color: #fff;
+	font-size: 36px;
+	text-transform: uppercase;
+	border-radius: 30px;
+	padding: 15px 25px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: deeppink;
+	}
+}
